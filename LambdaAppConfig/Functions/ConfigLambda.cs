@@ -14,6 +14,8 @@ namespace LambdaAppConfig.Functions
 
         protected void Invoke()
         {
+            ConfigurationReader.EnsureConfigurationIsReloaded();
+
             var testParameters = ConfigurationReader.GetTestParameters();
             Console.WriteLine($"TestParam: {testParameters.TestParam}");
         }

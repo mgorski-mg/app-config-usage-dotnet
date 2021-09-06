@@ -1,4 +1,5 @@
 using System;
+using Amazon.Extensions.Configuration.SystemsManager;
 using Amazon.Extensions.NETCore.Setup;
 using Microsoft.Extensions.Configuration;
 
@@ -22,6 +23,11 @@ namespace LambdaAppConfig.Configuration
                                        );
 
             config = configurationBuilder.Build();
+        }
+
+        public static void EnsureConfigurationIsReloaded()
+        {
+            config.WaitForSystemsManagerReloadToComplete(TimeSpan.FromSeconds(2));
         }
 
         public static TestParameters GetTestParameters()
