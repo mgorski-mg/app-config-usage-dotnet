@@ -1,3 +1,4 @@
+using System;
 using Amazon.Extensions.NETCore.Setup;
 using Microsoft.Extensions.Configuration;
 
@@ -25,9 +26,9 @@ namespace LambdaAppConfig.Configuration
 
         public static TestParameters GetTestParameters()
         {
-            var externalApiConfig = new TestParameters();
-            config.GetSection("TestParameters").Bind(externalApiConfig);
-            return externalApiConfig;
+            var testParameters = new TestParameters();
+            config.GetSection("TestParameters").Bind(testParameters);
+            return testParameters;
         }
     }
 }
