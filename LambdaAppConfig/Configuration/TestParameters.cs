@@ -1,4 +1,3 @@
-
 namespace LambdaAppConfig.Configuration
 {
     public class TestParameters
